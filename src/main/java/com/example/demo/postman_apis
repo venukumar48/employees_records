@@ -1,0 +1,7 @@
+
+get method
+
+http://localhost:8089/api/employees/empcodedate?fromdate=2024-07-13&todate=2024-08-13&empCOde=e101
+
+@GetMapping("/employees/empcodedate") this api should use
+ 
