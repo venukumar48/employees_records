@@ -1,0 +1,46 @@
+select * from employee;
+
+drop table employee purge;
+commit;
+drop table attendance purge;
+select * from students;
+select * from Attendance;
+
+alter table attendance add attendance_status varchar2(255 char);
+show all tabs;
+select * from tabs;
+
+create table employee(empCode varchar(40) NOT NULL PRIMARY KEY,ename varchar(20) NOT NULL ,phone varchar(30) NOT NULL ,email varchar(30) NOT NULL,profilePic blob);
+
+create table Attendance(attid number(20) NOT NULL PRIMARY KEY,empCode varchar(30) NOT NULL,attendancedate date NOT NULL,attendanceStatus varchar(40) NOT NULL);
+
+ALTER TABLE Attendance
+ADD CONSTRAINT empCode
+FOREIGN KEY (empCode) REFERENCES employee(empCode);
+
+alter table attendance
+select * from employee;
+select * from Attendance;
+
+select * from attendance b where b.emp_code='e101'
+     select * from attendance b where b.attid=100
+insert into employee values('e103','sabitha','7093961137','sabitha@gmal.com',RAWTOHEX('Test'));
+insert into attendance values(111,'absent',TO_DATE('15/07/2024','DD/MM/YYYY'),'e101');
+ 
+ select *from attendance where emp_code='e101'
+ delete from attendance where attid=103;
+ commit;
+desc attendance;
+SELECT * FROM attendance WHERE attendancedate = TO_DATE('31/08/2023', 'DD/MM/YYYY');
+SELECT * FROM attendance WHERE attendancedate BETWEEN TO_DATE('2024-07-13', 'YYYY-MM-DD') AND TO_DATE('2024-08-13', 'YYYY-MM-DD') and EMP_CODE='e101';
+SELECT * FROM attendance A WHERE A.attendancedate BETWEEN TO_DATE('2024-07-13', 'YYYY-MM-DD') AND TO_DATE('2024-08-13', 'YYYY-MM-DD') AND A.EMP_CODE ='e101';
+select count(Attendancestatus) from attendance where emp_code=(select emp_code from employee where emp_code='e101') and attendancedate BETWEEN TO_DATE('2024-07-13', 'YYYY-MM-DD') AND TO_DATE('2024-08-13', 'YYYY-MM-DD');
+
+select ATTENDANCE_STATUS from attendance where  attendancedate BETWEEN TO_DATE('2024-07-13', 'YYYY-MM-DD') AND TO_DATE('2024-08-13', 'YYYY-MM-DD')and EMP_CODE= (select EMP_CODE from employee  where EMP_CODE='e101')
+
+
+
+drop table Attendance purge;
+commit;
+
+alter  table attendance add constraints
